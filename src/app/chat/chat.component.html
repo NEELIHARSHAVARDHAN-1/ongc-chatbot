@@ -1,0 +1,26 @@
+<div class="chat-container">
+  <h1>ONGC RAG Chatbot</h1>
+
+  <div class="messages">
+    <div
+      *ngFor="let message of messages"
+      [ngClass]="message.from"
+      class="message"
+    >
+      <span class="author">
+        {{ message.from === 'user' ? 'You' : 'Bot' }}:
+      </span>
+      <span class="text">{{ message.text }}</span>
+    </div>
+  </div>
+
+  <form (ngSubmit)="sendMessage()" class="input-row">
+    <input
+      type="text"
+      [(ngModel)]="userInput"
+      name="message"
+      placeholder="Ask a question about the document..."
+    />
+    <button type="submit">Send</button>
+  </form>
+</div>
